@@ -20,6 +20,9 @@
     "message": "Vous êtes sur le point d'annuler toutes les modifications que vous avez apportées.",
     "title": "Annuler les modifications?"
   },
+  "files": {
+    "invalid": "Le fichier doit être de type : {{acceptedTypes}}"
+  },
   "filter": "Filtrer",
   "clear": "Effacer",
   "submit": "Soumettre"

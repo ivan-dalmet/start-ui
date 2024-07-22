@@ -19,6 +19,7 @@ import { FieldRadios, FieldRadiosProps } from './FieldRadios';
 import { FieldSelect, FieldSelectProps } from './FieldSelect';
 import { FieldText, FieldTextProps } from './FieldText';
 import { FieldTextarea, FieldTextareaProps } from './FieldTextarea';
+import { FieldUpload, FieldUploadProps } from './FieldUpload';
 
 type FormFieldSize = 'sm' | 'md' | 'lg';
 
@@ -45,6 +46,7 @@ export type FormFieldControllerProps<
 > =
   | FieldCustomProps<TFieldValues, TName>
   // -- ADD NEW FIELD PROPS TYPE HERE --
+  | FieldUploadProps<TFieldValues, TName>
   | FieldTextProps<TFieldValues, TName>
   | FieldTextareaProps<TFieldValues, TName>
   | FieldSelectProps<TFieldValues, TName>
@@ -106,6 +108,9 @@ export const FormFieldController = <
 
       case 'radios':
         return <FieldRadios {...props} />;
+
+      case 'upload':
+        return <FieldUpload {...props} />;
 
       // -- ADD NEW FIELD COMPONENT HERE --
     }

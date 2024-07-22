@@ -20,6 +20,9 @@
     "confirmText": "Discard changes",
     "cancelText": "Keep changes"
   },
+  "files": {
+    "invalid": "Provided file must be of type : {{acceptedTypes}}"
+  },
   "filter": "Filter",
   "clear": "Clear",
   "submit": "Submit"
