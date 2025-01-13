@@ -12,7 +12,7 @@ import type { FetchCreateContextFnOptions } from '@trpc/server/adapters/fetch';
 import { getHTTPStatusCodeFromError } from '@trpc/server/http';
 import { randomUUID } from 'node:crypto';
 import superjson from 'superjson';
-import { OpenApiMeta } from 'trpc-openapi';
+import { OpenApiMeta } from 'trpc-to-openapi';
 import { ZodError } from 'zod';
 
 import { env } from '@/env.mjs';
@@ -112,9 +112,11 @@ const loggerMiddleware = t.middleware(async (opts) => {
     apiType: opts.ctx.apiType,
   };
 
+  const rawInput = await opts.getRawInput();
+
   logger.debug(
-    { ...meta, input: opts.rawInput },
-    `${opts.rawInput ? '📨 With' : '📥 No'} input`
+    { ...meta, input: rawInput },
+    `${rawInput ? '📨 With' : '📥 No'} input`
   );
 
   // We are doing the next operation in tRPC
